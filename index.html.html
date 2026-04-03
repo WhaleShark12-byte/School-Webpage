@@ -4,389 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>McCreary Central High School</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --navy: #001f4d;
-    --navy-mid: #002f72;
-    --blue: #1a56db;
-    --gold: #f0a500;
-    --gold-light: #ffd166;
-    --white: #ffffff;
-    --off-white: #f4f7fc;
-    --gray: #e8edf5;
-    --text: #1a2035;
-    --muted: #5a6378;
-    --radius: 14px;
-    --shadow: 0 4px 20px rgba(0,31,77,0.10);
-  }
+:root {
+  --maroon: #6b0f1a;
+  --maroon-dark: #4a0a12;
+  --gold: #d4af37;
+  --gold-light: #f5d76e;
+  --gray: #ece7e3;
+  --bg: #f7f3f0;
+}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
-    color: var(--text);
-    min-height: 100vh;
-  }
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+  color: white;
+  padding: 15px;
+}
 
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #003a8c 100%);
-    color: white;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 18px,
-      rgba(255,255,255,0.025) 18px,
-      rgba(255,255,255,0.025) 36px
-    );
-    pointer-events: none;
-  }
+/* LOGO PLACEHOLDER */
+.logo {
+  width: 55px;
+  height: 55px;
+  background: var(--gold);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  .header-inner {
-    position: relative;
-    z-index: 1;
-    padding: 28px 20px 22px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .shield {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    background: var(--gold);
-    clip-path: polygon(50% 0%, 100% 15%, 100% 60%, 50% 100%, 0% 60%, 0% 15%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--navy);
-    letter-spacing: 0.5px;
-  }
+/* fallback text if no logo */
+.logo span {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  color: var(--maroon);
+}
 
-  .header-text h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(22px, 6vw, 34px);
-    letter-spacing: 1.5px;
-    line-height: 1.05;
-  }
+.header-text h1 {
+  font-family: 'Bebas Neue';
+  font-size: 26px;
+}
 
-  .header-text p {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-top: 3px;
-  }
+.header-text p {
+  font-size: 12px;
+  color: var(--gold-light);
+}
 
-  /* ── NAV ── */
-  nav {
-    background: rgba(0,15,40,0.95);
-    display: flex;
-    overflow-x: auto;
-    gap: 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    border-top: 2px solid var(--gold);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+/* NAV */
+nav {
+  display: flex;
+  overflow-x: auto;
+  background: var(--maroon-dark);
+  border-top: 2px solid var(--gold);
+}
 
-  nav::-webkit-scrollbar { display: none; }
+nav a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 12px;
+}
 
-  nav a {
-    color: rgba(255,255,255,0.75);
-    padding: 13px 16px;
-    text-decoration: none;
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: color 0.2s, border-bottom 0.2s;
-    border-bottom: 2px solid transparent;
-    position: relative;
-    top: 2px;
-  }
+nav a:hover {
+  color: var(--gold);
+}
 
-  nav a:hover, nav a:focus {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-  }
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 15px;
+}
 
-  /* ── MAIN LAYOUT ── */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+.section {
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
-  /* ── SECTION CARD ── */
-  .section-card {
-    background: white;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
+.section h2 {
+  padding: 15px;
+  border-bottom: 1px solid var(--gray);
+  color: var(--maroon);
+}
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 20px 14px;
-    border-bottom: 1px solid var(--gray);
-  }
+.content {
+  padding: 15px;
+}
 
-  .section-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
 
-  .section-icon svg {
-    width: 16px;
-    height: 16px;
-    fill: var(--gold);
-  }
+/* GRID */
+.grid {
+  display: grid;
+  gap: 10px;
+}
 
-  .section-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--navy);
-    letter-spacing: 1px;
-  }
-
-  .section-body {
-    padding: 18px 20px;
-  }
-
-  /* ── IFRAME ── */
-  .iframe-wrap {
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--gray);
-  }
-
-  .iframe-wrap iframe {
-    width: 100%;
-    border: none;
-    display: block;
-  }
-
-  /* ── GRID ── */
-  .grid-2 {
-    display: grid;
+@media (min-width: 600px) {
+  .grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
   }
+}
 
-  @media (max-width: 400px) {
-    .grid-2 { grid-template-columns: 1fr; }
-  }
+.card {
+  background: var(--gray);
+  padding: 12px;
+  border-radius: 10px;
+}
 
-  /* ── CARDS ── */
-  .chip {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 14px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--navy-mid);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .chip::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .event-card {
-    background: var(--off-white);
-    border-radius: 10px;
-    padding: 14px;
-    border-left: 4px solid var(--blue);
-  }
-
-  .event-card h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  .event-card .event-time {
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .event-card .event-time::before {
-    content: '🕖';
-    font-size: 11px;
-  }
-
-  /* ── RECOGNITION ── */
-  .recognition-card {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-    border-radius: 12px;
-    padding: 18px;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .recognition-card .avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-  }
-
-  .recognition-card .label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-light);
-  }
-
-  .recognition-card .name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
-  }
-
-  /* ── RESOURCES LIST ── */
-  .resource-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .resource-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px 16px;
-    background: var(--gray);
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--navy);
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .resource-link:hover {
-    background: #dce6f5;
-    transform: translateX(3px);
-  }
-
-  .resource-link .arrow {
-    color: var(--blue);
-    font-size: 16px;
-  }
-
-  /* ── SOCIALS ── */
-  .social-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .social-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 18px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.15s;
-    letter-spacing: 0.5px;
-  }
-
-  .social-btn:hover { opacity: 0.85; transform: translateY(-1px); }
-
-  .social-btn.fb   { background: #1877F2; color: white; }
-  .social-btn.ig   { background: linear-gradient(135deg,#f58529,#dd2a7b,#515bd4); color: white; }
-  .social-btn.yt   { background: #FF0000; color: white; }
-
-  /* ── REPORTS ── */
-  .report-placeholder {
-    border: 2px dashed #c8d5e8;
-    border-radius: 10px;
-    padding: 30px 20px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .report-placeholder .icon { font-size: 28px; margin-bottom: 8px; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 18px 16px;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
-
-  footer span { color: var(--gold-light); }
+/* FOOTER */
+footer {
+  background: var(--maroon);
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="shield">MC</div>
+    
+    <!-- LOGO PLACEHOLDER -->
+    <div class="logo">
+      <img src="images/raiderLogo.jpg" alt="School Logo">
+      <span></span>
+    </div>
+
     <div class="header-text">
-      <h1>McCreary Central<br>High School</h1>
+      <h1>McCreary Central High School</h1>
       <p>Home of the Raiders</p>
     </div>
   </div>
@@ -396,8 +171,8 @@
   <a href="#news">News</a>
   <a href="#events">Events</a>
   <a href="#calendar">Calendar</a>
-  <a href="#extracurriculars">Clubs</a>
-  <a href="#departments">Depts</a>
+  <a href="#clubs">Clubs</a>
+  <a href="#departments">Departments</a>
   <a href="#resources">Resources</a>
   <a href="#reports">Reports</a>
   <a href="#awards">Awards</a>
@@ -406,177 +181,94 @@
 
 <main>
 
-  <!-- NEWS -->
-  <div class="section-card" id="news">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
-      </div>
-      <h2>WMCHS News</h2>
-    </div>
-    <div class="section-body">
-      <div class="iframe-wrap">
-        <iframe height="220" src="https://www.youtube.com/embed?listType=user_uploads&list=mccrearyraiders" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
+<div class="section" id="news">
+  <h2>WMCHS News</h2>
+  <div class="content">
+    <iframe height="250" src="https://www.youtube.com/embed?listType=user_uploads&list=mccrearyraiders"></iframe>
   </div>
+</div>
 
-  <!-- EVENTS -->
-  <div class="section-card" id="events">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
-      </div>
-      <h2>Upcoming Events</h2>
+<div class="section" id="events">
+  <h2>Upcoming Events</h2>
+  <div class="content grid">
+    <div class="card">
+      <strong>Football Game</strong><br>Friday · 7 PM
     </div>
-    <div class="section-body">
-      <div class="grid-2">
-        <div class="event-card">
-          <h3>Football Game</h3>
-          <div class="event-time">Friday · 7:00 PM</div>
-        </div>
-        <div class="event-card">
-          <h3>Parent Meeting</h3>
-          <div class="event-time">Monday · 6:00 PM</div>
-        </div>
-      </div>
+    <div class="card">
+      <strong>Parent Meeting</strong><br>Monday · 6 PM
     </div>
   </div>
+</div>
 
-  <!-- CALENDAR -->
-  <div class="section-card" id="calendar">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-      </div>
-      <h2>School Calendar</h2>
-    </div>
-    <div class="section-body">
-      <div class="iframe-wrap">
-        <iframe height="360" src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com" loading="lazy"></iframe>
-      </div>
-    </div>
+<div class="section" id="calendar">
+  <h2>School Calendar</h2>
+  <div class="content">
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?src=c_29f1ec56b3406adeff1e40af7193a61bb7abbff0c407d200fdb159fb6bae377b%40group.calendar.google.com&ctz=America%2FNew_York"
+      height="400">
+    </iframe>
   </div>
+</div>
 
-  <!-- EXTRACURRICULARS -->
-  <div class="section-card" id="extracurriculars">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-      </div>
-      <h2>Extracurricular Activities</h2>
-    </div>
-    <div class="section-body">
-      <div class="grid-2">
-        <div class="chip">Football</div>
-        <div class="chip">Basketball</div>
-        <div class="chip">Band</div>
-        <div class="chip">Beta Club</div>
-        <div class="chip">FFA</div>
-        <div class="chip">Cheerleading</div>
-      </div>
-    </div>
+<div class="section" id="clubs">
+  <h2>Extracurricular Activities</h2>
+  <div class="content grid">
+    <div class="card">Football</div>
+    <div class="card">Basketball</div>
+    <div class="card">Band</div>
+    <div class="card">Beta Club</div>
+    <div class="card">FFA</div>
+    <div class="card">Cheerleading</div>
   </div>
+</div>
 
-  <!-- DEPARTMENTS -->
-  <div class="section-card" id="departments">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V17h2v-4.82L9 13.54V17c0 1.1 1.35 2 3 2s3-.9 3-2v-3.46l5-2.36V21h2V9L12 3z"/></svg>
-      </div>
-      <h2>Departments</h2>
-    </div>
-    <div class="section-body">
-      <div class="grid-2">
-        <div class="chip">Math</div>
-        <div class="chip">Science</div>
-        <div class="chip">English</div>
-        <div class="chip">Social Studies</div>
-        <div class="chip">CTE</div>
-        <div class="chip">Fine Arts</div>
-      </div>
-    </div>
+<div class="section" id="departments">
+  <h2>Departments</h2>
+  <div class="content grid">
+    <div class="card">Math</div>
+    <div class="card">Science</div>
+    <div class="card">English</div>
+    <div class="card">Social Studies</div>
+    <div class="card">CTE</div>
+    <div class="card">Fine Arts</div>
   </div>
+</div>
 
-  <!-- RESOURCES -->
-  <div class="section-card" id="resources">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5S15.01 22 17.5 22s4.5-2.01 4.5-4.5S19.99 13 17.5 13zm0 7c-1.38 0-2.5-1.12-2.5-2.5S16.12 15 17.5 15s2.5 1.12 2.5 2.5S18.88 20 17.5 20zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
-      </div>
-      <h2>Student &amp; Parent Resources</h2>
-    </div>
-    <div class="section-body">
-      <div class="resource-list">
-        <a href="#" class="resource-link">Infinite Campus <span class="arrow">→</span></a>
-        <a href="#" class="resource-link">Google Classroom <span class="arrow">→</span></a>
-        <a href="#" class="resource-link">Lunch Menu <span class="arrow">→</span></a>
-        <a href="#" class="resource-link">School Policies <span class="arrow">→</span></a>
-      </div>
-    </div>
+<div class="section" id="resources">
+  <h2>Resources</h2>
+  <div class="content">
+    <div class="card">Infinite Campus</div>
+    <div class="card">Google Classroom</div>
+    <div class="card">Lunch Menu</div>
   </div>
+</div>
 
-  <!-- REPORTS -->
-  <div class="section-card" id="reports">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-3 8H8v-2h2v2zm4 0h-2v-2h2v2zm0-4H8v-2h6v2z"/></svg>
-      </div>
-      <h2>Weekly Treasurer Report</h2>
-    </div>
-    <div class="section-body">
-      <div class="report-placeholder">
-        <div class="icon">📋</div>
-        <p>Upload or link the weekly financial report here.</p>
-      </div>
-    </div>
+<div class="section" id="reports">
+  <h2>Weekly Treasurer Report</h2>
+  <div class="content">
+    Upload reports here
   </div>
+</div>
 
-  <!-- AWARDS -->
-  <div class="section-card" id="awards">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V18H9v2h6v-2h-2v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 11.63 21 9.55 21 7V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
-      </div>
-      <h2>Student &amp; Staff of the Month</h2>
-    </div>
-    <div class="section-body">
-      <div class="grid-2">
-        <div class="recognition-card">
-          <div class="avatar">🎓</div>
-          <div class="label">Student of the Month</div>
-          <div class="name">Name Here</div>
-        </div>
-        <div class="recognition-card">
-          <div class="avatar">👩‍🏫</div>
-          <div class="label">Staff of the Month</div>
-          <div class="name">Name Here</div>
-        </div>
-      </div>
-    </div>
+<div class="section" id="awards">
+  <h2>Student & Staff of the Month</h2>
+  <div class="content grid">
+    <div class="card">Student: Name Here</div>
+    <div class="card">Staff: Name Here</div>
   </div>
+</div>
 
-  <!-- SOCIALS -->
-  <div class="section-card" id="socials">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
-      </div>
-      <h2>Follow Us</h2>
-    </div>
-    <div class="section-body">
-      <div class="social-row">
-        <a href="#" class="social-btn fb">📘 Facebook</a>
-        <a href="#" class="social-btn ig">📷 Instagram</a>
-        <a href="https://www.youtube.com/@mccrearyraiders" class="social-btn yt">▶ YouTube</a>
-      </div>
-    </div>
+<div class="section" id="socials">
+  <h2>Socials</h2>
+  <div class="content">
+    YouTube | Facebook | Instagram
   </div>
+</div>
 
 </main>
 
 <footer>
-  <p>&copy; 2026 <span>McCreary Central High School</span> · Home of the Raiders</p>
+  © 2026 McCreary Central High School - Raiders
 </footer>
 
 </body>
